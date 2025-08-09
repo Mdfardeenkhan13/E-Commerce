@@ -1,0 +1,54 @@
+<%- include('../partials/head') %>
+<body>
+<%- include('../partials/header') %>
+<main class="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
+  <h1 class="text-3xl font-bold text-red-500 text-center mb-8">Send Us Message</h1><br>
+
+  <form class="space-y-6">
+    <div>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Name *"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+    </div><br>
+
+    <div>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email *"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+    </div><br>
+
+    <div>
+      <textarea
+        name="comment"
+        id="comment"
+        placeholder="Comment *"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400">
+      </textarea>
+    </div><br>
+
+    <div>
+        <input type="checkbox" name="terms" id="terms" class="mr-2" required />
+            <label for="terms">Save my name, email and website in this browser</label>
+    </div>
+    
+
+    <div class="text-center">
+      <button
+        type="submit"
+        class=  "w-[200px] bg-red-500 text-white px-6 py-2 rounded-lg  hover:bg-red-600 transition duration-300 cursor-pointer"
+      >
+        Send
+      </button>
+    </div>
+  </form>
+</main>
+</body>
+</html>

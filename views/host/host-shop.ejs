@@ -1,0 +1,35 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section>
+            <div class=" mt-[5rem] w-[80%] mx-auto">
+                <div class="flex justify-between">
+                    <div>
+                        <h2 class="text-[xxx-large] font-bold">Host Shop List</h2>
+                        <p class="text-[medium] pt-3">Add the products</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap space-x-7 space-y-10 mt-20 mb-20">
+                    <% productDetails.forEach(shop => { %>
+                    <div class="w-93 h-150">
+                        <div class="h-[27rem] w-[23rem] overflow-hidden">
+                            <div><img src="<%= shop.productPhoto %>" alt="1-flowline" class="cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+                        </div>
+                        <h2 class="py-4 text-xl font-bold cursor-pointer"><%= shop.productName %></h2>
+                        <p class="opacity-60"><%= shop.gender %></p>
+                        <h3 class="text-lg font-bold mb-3">₹<%= shop.price %></h3>
+                        <div class="flex space-x-6">
+                            <a href="/host/edit-shop/<%=shop._id%>?editing=true" class="bg-blue-500 px-9 py-2.5 border border-none rounded-2xl">Edit</a>
+                            <form action="/host/delete-shop/<%= shop._id %>" method="post">
+                            <button type="submit" class="bg-red-500 w-24 p-3 border border-none rounded-2xl cursor-pointer">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+<%- include('../partials/footer') %>      

@@ -1,0 +1,46 @@
+<%- include('../partials/head') %>
+<body>
+<%- include('../partials/header') %>
+<main class="max-w-xl mx-auto mt-10 bg-white shadow-lg rounded-lg p-8">
+  <h1 class="text-3xl font-bold text-red-500 text-center mb-8">Login</h1><br>
+
+  <form action="/login" method="POST" class="space-y-6">
+    <%- include('../partials/error') %>
+
+    <div>
+      <label for="email" class="block text-gray-700 font-semibold mb-2">E-Mail</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        value="<%= oldInput.email ? oldInput.email : '' %>"
+        placeholder="Email/Username"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+    </div><br>
+
+    <div>
+      <label for="password" class="block text-gray-700 font-semibold mb-2">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Enter your password"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-400"
+      />
+    </div><br>
+
+    
+
+    <div class="text-center">
+      <button
+        type="submit"
+        class=  "w-[200px] bg-red-500 text-white px-6 py-2 rounded-lg  hover:bg-red-600 transition duration-300 cursor-pointer"
+      >
+        Sign In
+      </button>
+    </div>
+  </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<header>
+    <section>
+        <!-- Main Header -->
+        <div class="flex justify-between items-center w-[80%] mx-auto pt-6 pb-3">
+            
+            <!-- Logo -->
+            <div>
+                <img src="/img/about-img/logo.png" alt="logo" class="cursor-pointer h-11">
+            </div>
+
+            <!-- Center Navigation -->
+            <nav class="flex space-x-8 text-lg mx-auto">
+                <a href="/" class="<%= currentPage === 'home' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Home</a>
+
+                <% if (isLoggedIn) { %>
+                    <% if (user && user.userType === 'guest') { %>
+                        <a href="/shop" class="<%= currentPage === 'shop' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Shop</a>
+                        <a href="/blog" class="<%= currentPage === 'blog' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Blog</a>
+                        <a href="/about" class="<%= currentPage === 'about' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">About</a>
+                        <a href="/contact" class="<%= currentPage === 'contact' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Contact</a>
+                    <% } else { %>
+                        <a href="/host/host-shop" class="<%= currentPage === 'host-shop' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Host-Shop</a>
+                        <a href="/host/add-shop" class="<%= currentPage === 'add-shop' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Add-Shop</a>
+                    <% } %>
+                <% } %>
+            </nav>
+
+            <!-- Right Side (Login/Signup or Cart/Logout) -->
+            <div class="flex items-center space-x-6">
+                <% if (!isLoggedIn) { %>
+                    <a href="/signup" class="<%= currentPage === 'signup' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Signup</a>
+                    <a href="/login" class="<%= currentPage === 'login' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>">Login</a>
+                <% } else { %>
+                    <% if (user && user.userType === 'guest') { %>
+                        <a href="/cart">
+                            <i class="<%= currentPage === 'cart' ? 'text-red-500' : 'hover:text-red-500' %> fa-solid fa-basket-shopping text-2xl cursor-pointer"></i>
+                        </a>
+                    <% } %>
+                    <form action="/logout" method="post">
+                        <button type="submit" class="<%= currentPage === 'logout' ? 'text-red-500 font-bold' : 'hover:text-red-500' %>"><i class="fa-solid fa-arrow-right-to-bracket text-2xl cursor-pointer"></i></button>
+                        
+                        
+                    </form>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Promo Banner -->
+        <div class="flex place-content-center text-white bg-black pt-3 pb-3">
+            <% if (isLoggedIn) { %>
+                <h3>Get 15% off on your first order</h3>
+            <% } else { %>
+                <h3>Login to see Shop</h3>
+            <% } %>    
+        </div>
+    </section>
+</header>

@@ -1,0 +1,36 @@
+<%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section>
+            <div class=" mt-[5rem] w-[80%] mx-auto">
+                <div class="flex justify-between">
+                    <div>
+                        <h2 class="text-[xxx-large] font-bold">Cart</h2>
+                    </div>
+                </div>
+                <div class="flex flex-wrap space-x-7 space-y-10 mt-20 mb-20">
+                    <% cartItems.forEach(shop => { %>
+                    <div class="w-93 h-154">
+                        <div class="h-[27rem] w-[23rem] overflow-hidden">
+                            <div><img src="<%= shop.productPhoto %>" alt="1-flowline" class="cursor-pointer transition-transform duration-300 hover:scale-110"></div>
+                        </div>
+                        <h2 class="py-4 text-xl font-bold cursor-pointer"><%= shop.productName %></h2>
+                        <p class="opacity-60"><%= shop.gender %></p>
+                        <h3 class="text-lg font-bold mb-3">₹<%= shop.price %></h3>
+                        <div>
+                            <button class="border border-black px-2 py-1 space-x-2 cursor-pointer">M</button>
+                            <button class="border border-black px-2 py-1 space-x-2 cursor-pointer">L</button>
+                            <button class="border border-black px-2 py-1 space-x-2 cursor-pointer">XL</button>
+                        </div>
+                        <form action="/cart/delete/<%= shop._id %>" method="post">
+                            <button class="bg-red-500 h-12 w-45 mt-2 mb-2 px-4 border border-none rounded-2xl hover:bg-red-400 cursor-pointer">Remove from Cart</button>
+                        </form>
+                        
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    </main>
+<%- include('../partials/footer') %>
