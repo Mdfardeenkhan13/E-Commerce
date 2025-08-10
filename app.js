@@ -6,7 +6,7 @@ const express = require('express');
 const session = require('express-session');
 const { default: mongoose } = require('mongoose');
 const mongodbStorage = require('connect-mongodb-session')(session);
-const DB_PATH = "mongodb+srv://fardeen:fardeen81870@coding.jujsuqt.mongodb.net/velora?retryWrites=true&w=majority&appName=Coding";
+const DB_PATH = "";
 
 // Local Module
 const rootDir = require('./utils/pathUtil');
